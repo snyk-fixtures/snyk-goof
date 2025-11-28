@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha11
+kind: Component
+metadata:
+  # Name of the service
+  name: test filename customization
+  # Share what the service/store is and does, to help people with minimal knowledge of service understand context
+  description: Service to aggregate, deduplicate, and store assets
+  title: snyk goof name
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    circleci.com/project-slug: github/snyk/asset-service
+    # The GitHub organization and project
+    github.com/project-slug: snyk/asset-service
+    # The GitHub team responsible for maintaining the project
+    github.com/team-slug: snyk/cloud-entex
+    # Is this service exposed on the public internet and accept user input? (yes, no)
+    snyk.io/accepts-user-input: no
+    # Prefix used to automatically create JIRA tickets
+    snyk.io/jira-prefix: CENTEX
+    # 1 - An asset which contains bulk customer information.
+    # 2 - An asset which if compromised would cause an availability issue OR contains transient customer information.
+    # 3 - An asset which contains proprietary (not customer) information.
+    # 4 - An asset which contains neither customer nor proprietary information.
+    snyk.io/criticality: "1"
+  links:
+    - title: Team Asks Channel
+      url: https://snyk.slack.com/channels/ask-cloud
+      icon: message
+    - url: https://snyk.roadie.so/docs/default/component/asset-service/index/
+      name: Overview
+    - url: https://snyk.roadie.so/docs/default/component/asset-service/runbook/
+      title: Runbook
+    - url: https://app.datadoghq.com/slo/manage?query=team:cloud-enterprise-experience%20AND%20service:asset-service
+      title: SLO Dashboard
+      icon: dashboard
+  tags:
+    - go
+    - polaris-application
+spec:
+  type: snyk-deployed-prod
+  lifecycle: "-"
+  owner: fani
+  providesApis:
+    - asset-service_2023-08-18_experimental

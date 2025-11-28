@@ -9,4 +9,4 @@ RUN npm update
 RUN npm install
 EXPOSE 3001
 EXPOSE 9229
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm", "start", "end"]
