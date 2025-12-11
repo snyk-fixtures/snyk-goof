@@ -17,10 +17,12 @@ var http = require('http');
 var path = require('path');
 var ejsEngine = require('ejs-locals');
 var cookieParser = require('cookie-parser');
+var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var logger = require('morgan');
 var errorHandler = require('errorhandler');
+var helmet = require('helmet');
 var optional = require('optional');
 var marked = require('marked');
 var fileUpload = require('express-fileupload');
@@ -41,6 +43,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(methodOverride());
 app.use(cookieParser());
+app.use(csrf());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
@@ -68,6 +71,7 @@ app.locals.marked = marked;
 
 // development only
 if (app.get('env') == 'development') {
+  app.use(helmet());
   app.use(errorHandler());
 }
 

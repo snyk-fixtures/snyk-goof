@@ -6,3 +6,6 @@ node_modules
 sass
 config.rb
 npm-debug.log
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md
