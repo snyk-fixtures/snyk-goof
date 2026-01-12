@@ -224,7 +224,7 @@ exports.about_new = function (req, res, next) {
     return res.render("about_new.dust",
       {
         title: 'Goof TODO',
-        subhead: 'Vulnerabilities at their best',
+        subhead: 'Vulnerabilities at their bestt',
         device: req.query.device
       });
 };
