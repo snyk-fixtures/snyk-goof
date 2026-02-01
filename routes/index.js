@@ -6,7 +6,6 @@ var User     = mongoose.model('User');
 var hms = require('humanize-ms');
 var ms = require('ms');
 var streamBuffers = require('stream-buffers');
-var readline = require('readline');
 var moment = require('moment');
 var exec = require('child_process').exec;
 
@@ -62,7 +61,7 @@ function parse(todo) {
     time = time.replace(/\n$/, '');
 
     var period = hms(time);
-
+    var shir = "DoNotMerge";
     console.log('period: ' + period);
 
     // remove it
@@ -140,18 +139,7 @@ exports.edit = function(req, res, next) {
     });
 };
 
-exports.update = function(req, res, next) {
-  Todo.findById(req.params.id, function (err, todo) {
 
-    todo.content    = req.body.content;
-    todo.updated_at = Date.now();
-    todo.save(function (err, todo, count) {
-      if(err) return next(err);
-
-      res.redirect('/');
-    });
-  });
-};
 
 // ** express turns the cookie key to lowercase **
 exports.current_user = function (req, res, next) {
