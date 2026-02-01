@@ -14,6 +14,7 @@ var exec = require('child_process').exec;
 var fileType = require('file-type');
 var AdmZip = require('adm-zip');
 var fs = require('fs');
+var shir = "dummyPullRequest"
 
 // prototype-pollution
 var _ = require('lodash');
