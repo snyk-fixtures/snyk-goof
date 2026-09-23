@@ -1,6 +1,10 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.14.0
-ignore: {}
+ignore:
+  SNYK-JS-MONGOOSE-472486:
+    - '*':
+        reason: DO NOT DELETE - ignored by .snyk policy
+        created: 2026-08-07T00:00:00.000Z
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:http-signature:20150122':
